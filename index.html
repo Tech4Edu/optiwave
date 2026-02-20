@@ -1,11 +1,718 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optiwave - AI-Powered Process Intelligence | Zmapuj. Zoptymalizuj. Zautomatyzuj.</title>
+    <meta name="description" content="Optiwave wykorzystuje sztuczną inteligencję do mapowania i optymalizacji procesów biznesowych. Odkryj ukryte nieefektywności i przekształć je w przewagę konkurencyjną.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Optiwave - AI-Powered Process Intelligence">
+    <meta property="og:description" content="Zmapuj. Zoptymalizuj. Zautomatyzuj. Zwiększ marżę operacyjną dzięki inteligentnej automatyzacji.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://optiwave.pl">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%2306b6d4'/><stop offset='100%25' style='stop-color:%238b5cf6'/></linearGradient></defs><circle cx='50' cy='50' r='45' fill='url(%23g)'/><path d='M30 50 L45 65 L70 35' stroke='white' stroke-width='8' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#ecfeff',
+                            100: '#cffafe',
+                            200: '#a5f3fc',
+                            300: '#67e8f9',
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                            800: '#155e75',
+                            900: '#164e63',
+                        },
+                        accent: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 50%, #06b6d4 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient 8s ease infinite;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.15);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .glow {
+            box-shadow: 0 0 60px rgba(6, 182, 212, 0.3), 0 0 100px rgba(139, 92, 246, 0.2);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-950 text-white font-sans antialiased">
+    <!-- Navigation -->
+    <header class="fixed inset-x-0 top-0 z-50 glass">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
+            <div class="flex lg:flex-1">
+                <a href="index.html" class="-m-1.5 p-1.5 flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">Optiwave</span>
+                </a>
+            </div>
+            <div class="flex lg:hidden">
+                <button type="button" id="mobile-menu-button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400 hover:text-white transition-colors">
+                    <span class="sr-only">Otworz menu</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden lg:flex lg:gap-x-10">
+                <a href="index.html" class="text-sm font-semibold text-primary-400 hover:text-primary-300 transition-colors">Strona glowna</a>
+                <a href="about.html" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors">O nas</a>
+                <a href="gallery.html" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors">Portfolio</a>
+                <a href="contact.html" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors">Kontakt</a>
+            </div>
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                <a href="contact.html" class="rounded-full bg-gradient-to-r from-primary-500 to-accent-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg hover:shadow-primary-500/25 transition-all duration-300 hover:scale-105">
+                    Umow konsultacje
+                </a>
+            </div>
+        </nav>
 
-<!-- Put your code here -->
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden lg:hidden">
+            <div class="space-y-1 px-4 pb-4">
+                <a href="index.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-primary-400 bg-primary-500/10">Strona glowna</a>
+                <a href="about.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-gray-300 hover:bg-white/5 transition-colors">O nas</a>
+                <a href="gallery.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-gray-300 hover:bg-white/5 transition-colors">Portfolio</a>
+                <a href="contact.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-gray-300 hover:bg-white/5 transition-colors">Kontakt</a>
+                <a href="contact.html" class="block rounded-full bg-gradient-to-r from-primary-500 to-accent-500 px-4 py-2.5 text-center text-base font-semibold text-white mt-4">Umow konsultacje</a>
+            </div>
+        </div>
+    </header>
 
+    <main>
+        <!-- Hero Section -->
+        <section class="relative isolate overflow-hidden min-h-screen flex items-center pt-20">
+            <!-- Background decorations -->
+            <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
+                <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary-500 to-accent-500 opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
+            </div>
+            <div aria-hidden="true" class="absolute inset-x-0 top-[calc(100%-20rem)] -z-10 transform-gpu overflow-hidden blur-3xl">
+                <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-accent-500 to-primary-500 opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"></div>
+            </div>
+
+            <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+                <div class="mx-auto max-w-3xl text-center fade-in">
+                    <div class="mb-8 flex justify-center">
+                        <div class="relative rounded-full px-4 py-1.5 text-sm text-gray-400 ring-1 ring-white/10 hover:ring-white/20 transition-all">
+                            <span class="text-primary-400 font-semibold">AI-Powered</span> Process Intelligence
+                            <span class="absolute -right-1 -top-1 flex h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-primary-500"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <h1 class="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl mb-6">
+                        <span class="gradient-text">Zmapuj. Zoptymalizuj.</span><br>
+                        <span class="text-white">Zautomatyzuj.</span>
+                    </h1>
+
+                    <p class="mt-6 text-lg leading-8 text-gray-400 max-w-2xl mx-auto">
+                        Wykorzystaj sztuczna inteligencje do mapowania i optymalizacji procesow biznesowych.
+                        Odkryj ukryte nieefektywnosci i przeksztalc je w <span class="text-primary-400 font-medium">przewage konkurencyjna</span>.
+                    </p>
+
+                    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="contact.html" class="w-full sm:w-auto rounded-full bg-gradient-to-r from-primary-500 to-accent-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-primary-500/30 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
+                            Rozpocznij transformacje
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                        <a href="#intro" class="w-full sm:w-auto rounded-full px-8 py-4 text-base font-semibold text-gray-300 ring-1 ring-white/10 hover:ring-white/20 hover:bg-white/5 transition-all duration-300 flex items-center justify-center gap-2">
+                            Dowiedz sie wiecej
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="mx-auto mt-20 max-w-4xl">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 fade-in" style="animation-delay: 0.2s">
+                        <div class="text-center p-6 rounded-2xl glass hover-lift">
+                            <div class="text-3xl font-bold gradient-text">30%+</div>
+                            <div class="text-sm text-gray-400 mt-1">Redukcja kosztow</div>
+                        </div>
+                        <div class="text-center p-6 rounded-2xl glass hover-lift">
+                            <div class="text-3xl font-bold gradient-text">50%</div>
+                            <div class="text-sm text-gray-400 mt-1">Szybsze procesy</div>
+                        </div>
+                        <div class="text-center p-6 rounded-2xl glass hover-lift">
+                            <div class="text-3xl font-bold gradient-text">24/7</div>
+                            <div class="text-sm text-gray-400 mt-1">Monitoring AI</div>
+                        </div>
+                        <div class="text-center p-6 rounded-2xl glass hover-lift">
+                            <div class="text-3xl font-bold gradient-text">100+</div>
+                            <div class="text-sm text-gray-400 mt-1">Optymalizacji</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section id="intro" class="py-24 sm:py-32 relative">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:text-center fade-in">
+                    <p class="text-base font-semibold text-primary-400 uppercase tracking-wider">Dlaczego Optiwave?</p>
+                    <h2 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        Tradycyjne metody mapowania procesow <span class="gradient-text">sa przestarzale</span>
+                    </h2>
+                    <p class="mt-6 text-lg leading-8 text-gray-400">
+                        Reczne mapowanie procesow jest czasochlonne i podatne na bledy. Nasza platforma wykorzystuje
+                        zaawansowane modele AI do automatycznej analizy przeplywow pracy - od sprzedazy, przez logistyke,
+                        az po obsluge klienta.
+                    </p>
+                </div>
+
+                <div class="mx-auto mt-16 max-w-5xl">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="space-y-6 fade-in">
+                            <div class="flex gap-4 p-6 rounded-2xl glass hover-lift">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-red-500/20 to-red-500/10 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-white">Tradycyjne podejscie</h3>
+                                    <p class="text-gray-400 text-sm mt-1">Reczne mapowanie, subiektywne oceny, brak danych w czasie rzeczywistym</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-6 rounded-2xl glass hover-lift">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-500/10 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-white">Podejscie Optiwave</h3>
+                                    <p class="text-gray-400 text-sm mt-1">AI automatycznie analizuje dane, wykrywa wzorce i generuje rekomendacje</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative fade-in" style="animation-delay: 0.2s">
+                            <div class="aspect-square rounded-3xl bg-gradient-to-br from-primary-500/10 to-accent-500/10 p-8 glow">
+                                <div class="w-full h-full rounded-2xl glass flex items-center justify-center">
+                                    <div class="text-center">
+                                        <div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center mb-4 animate-float">
+                                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                            </svg>
+                                        </div>
+                                        <p class="text-white font-semibold">Inteligentna analiza</p>
+                                        <p class="text-gray-400 text-sm">w czasie rzeczywistym</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section (4 Pillars) -->
+        <section id="features" class="py-24 sm:py-32 relative">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:text-center fade-in">
+                    <p class="text-base font-semibold text-primary-400 uppercase tracking-wider">Cztery filary</p>
+                    <h2 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        Kompleksowe podejscie do <span class="gradient-text">transformacji procesow</span>
+                    </h2>
+                </div>
+
+                <div class="mx-auto mt-16 max-w-6xl">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Pillar 1 -->
+                        <div class="group p-8 rounded-3xl glass hover-lift fade-in">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Mapowanie procesow z AI</h3>
+                            <p class="text-gray-400 mb-4">Automatyczna identyfikacja i wizualizacja przeplywow biznesowych w czasie rzeczywistym.</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-primary-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Wykrywanie waskich gardel
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-primary-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Identyfikacja kosztownych krokow
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-primary-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Analiza roznic miedzy zespolami
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Pillar 2 -->
+                        <div class="group p-8 rounded-3xl glass hover-lift fade-in" style="animation-delay: 0.1s">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Cyfrowy blizniak procesu</h3>
+                            <p class="text-gray-400 mb-4">Polaczenie danych z ERP, CRM, produkcji i finansow z mapa przebiegu pracy.</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-accent-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Realne czasy i koszty
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-accent-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Przewidywanie skutkow zmian
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-accent-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Monitoring w czasie rzeczywistym
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Pillar 3 -->
+                        <div class="group p-8 rounded-3xl glass hover-lift fade-in" style="animation-delay: 0.2s">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Inteligentna optymalizacja</h3>
+                            <p class="text-gray-400 mb-4">Algorytmy AI na biezaco analizuja przebieg procesu i podpowiadaja usprawnienia.</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Wykrywanie odchylen
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Analiza SLA i obciazenia
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Konkretne rekomendacje
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Pillar 4 -->
+                        <div class="group p-8 rounded-3xl glass hover-lift fade-in" style="animation-delay: 0.3s">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Wdrozenie i skalowanie</h3>
+                            <p class="text-gray-400 mb-4">Automatyzacja end-to-end z pelna kontrola efektow i mozliwoscia skalowania.</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Predykcja i priorytetyzacja
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Orkiestracja i reguly
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Kontrola efektow
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 sm:py-32 relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:text-center fade-in">
+                    <p class="text-base font-semibold text-primary-400 uppercase tracking-wider">Nasze uslugi</p>
+                    <h2 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        Jak mozemy Ci <span class="gradient-text">pomoc?</span>
+                    </h2>
+                </div>
+
+                <div class="mx-auto mt-16 max-w-5xl">
+                    <div class="grid gap-8 md:grid-cols-3">
+                        <div class="p-8 rounded-3xl glass hover-lift text-center fade-in">
+                            <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-500/5 flex items-center justify-center mb-6">
+                                <svg class="w-8 h-8 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-3">Audyt procesow</h3>
+                            <p class="text-gray-400 text-sm">Kompleksowa analiza obecnych przeplywow pracy z identyfikacja obszarow do optymalizacji.</p>
+                        </div>
+
+                        <div class="p-8 rounded-3xl glass hover-lift text-center fade-in" style="animation-delay: 0.1s">
+                            <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-accent-500/20 to-accent-500/5 flex items-center justify-center mb-6">
+                                <svg class="w-8 h-8 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-3">Wdrozenie AI</h3>
+                            <p class="text-gray-400 text-sm">Implementacja rozwiazan AI dopasowanych do specyfiki Twojego biznesu.</p>
+                        </div>
+
+                        <div class="p-8 rounded-3xl glass hover-lift text-center fade-in" style="animation-delay: 0.2s">
+                            <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-6">
+                                <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-3">Wsparcie i rozwoj</h3>
+                            <p class="text-gray-400 text-sm">Ciagly monitoring, optymalizacja i rozwoj wdrozonych rozwiazan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-24 sm:py-32 relative">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:text-center fade-in">
+                    <p class="text-base font-semibold text-primary-400 uppercase tracking-wider">Opinie klientow</p>
+                    <h2 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        Co mowia o nas <span class="gradient-text">nasi partnerzy</span>
+                    </h2>
+                </div>
+
+                <div class="mx-auto mt-16 max-w-5xl">
+                    <div class="grid gap-8 md:grid-cols-2">
+                        <div class="p-8 rounded-3xl glass fade-in">
+                            <div class="flex gap-1 mb-6">
+                                <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <blockquote class="text-lg text-gray-300 mb-6">
+                                "Dzieki Optiwave zidentyfikowalismy i wyeliminowalismy waskie gardla, ktore przez lata spowalnialy nasze procesy. Redukcja kosztow o 35% przekroczyla nasze oczekiwania."
+                            </blockquote>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white font-bold">MK</div>
+                                <div>
+                                    <div class="font-semibold text-white">Marek Kowalski</div>
+                                    <div class="text-sm text-gray-400">Dyrektor Operacyjny, LogiTech Sp. z o.o.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-8 rounded-3xl glass fade-in" style="animation-delay: 0.1s">
+                            <div class="flex gap-1 mb-6">
+                                <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <blockquote class="text-lg text-gray-300 mb-6">
+                                "Profesjonalne podejscie i konkretne rezultaty. Cyfrowy blizniak procesu pozwolil nam przewidziec skutki zmian przed ich wdrozeniem - to bezcenne."
+                            </blockquote>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-accent-500 to-primary-500 flex items-center justify-center text-white font-bold">AN</div>
+                                <div>
+                                    <div class="font-semibold text-white">Anna Nowak</div>
+                                    <div class="text-sm text-gray-400">CEO, E-Commerce Solutions</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-24 sm:py-32 relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:text-center fade-in">
+                    <p class="text-base font-semibold text-primary-400 uppercase tracking-wider">FAQ</p>
+                    <h2 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        Najczesciej zadawane <span class="gradient-text">pytania</span>
+                    </h2>
+                </div>
+
+                <div class="mx-auto mt-16 max-w-3xl">
+                    <div class="space-y-4">
+                        <div class="rounded-2xl glass overflow-hidden fade-in">
+                            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between gap-4" onclick="toggleFaq(this)">
+                                <span class="font-semibold text-white">Jak dziala mapowanie procesow z AI?</span>
+                                <svg class="faq-icon w-5 h-5 text-primary-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <div class="faq-content hidden px-6 pb-5">
+                                <p class="text-gray-400">Nasza platforma analizuje dane z Twoich systemow (ERP, CRM, etc.) i automatycznie tworzy mape przeplywow pracy. AI identyfikuje wzorce, waskie gardla i anomalie, generujac konkretne rekomendacje optymalizacyjne.</p>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl glass overflow-hidden fade-in" style="animation-delay: 0.1s">
+                            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between gap-4" onclick="toggleFaq(this)">
+                                <span class="font-semibold text-white">Ile czasu trwa wdrozenie?</span>
+                                <svg class="faq-icon w-5 h-5 text-primary-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <div class="faq-content hidden px-6 pb-5">
+                                <p class="text-gray-400">Czas wdrozenia zalezy od skali i zlozonosci procesow. Typowy projekt pilotazowy zajmuje 4-8 tygodni. Pierwsze wyniki i rekomendacje sa widoczne juz po kilku dniach od integracji z danymi.</p>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl glass overflow-hidden fade-in" style="animation-delay: 0.2s">
+                            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between gap-4" onclick="toggleFaq(this)">
+                                <span class="font-semibold text-white">Czy moje dane sa bezpieczne?</span>
+                                <svg class="faq-icon w-5 h-5 text-primary-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <div class="faq-content hidden px-6 pb-5">
+                                <p class="text-gray-400">Tak. Stosujemy najwyzsze standardy bezpieczenstwa, w tym szyfrowanie end-to-end, certyfikacje ISO 27001 i pelna zgodnosc z RODO. Dane nigdy nie opuszczaja Twojej infrastruktury bez Twojej zgody.</p>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl glass overflow-hidden fade-in" style="animation-delay: 0.3s">
+                            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between gap-4" onclick="toggleFaq(this)">
+                                <span class="font-semibold text-white">Jakie systemy mozna zintegrowac?</span>
+                                <svg class="faq-icon w-5 h-5 text-primary-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <div class="faq-content hidden px-6 pb-5">
+                                <p class="text-gray-400">Integrujemy sie z wiekszoscia popularnych systemow ERP (SAP, Oracle, Microsoft Dynamics), CRM (Salesforce, HubSpot), systemami produkcyjnymi, finansowymi i wieloma innymi. Oferujemy rowniez API do integracji z systemami wlasnymi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="cta" class="py-24 sm:py-32 relative">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="relative isolate overflow-hidden rounded-3xl bg-gradient-to-br from-primary-600 via-accent-600 to-primary-700 px-6 py-16 sm:px-16 sm:py-24 lg:px-24 fade-in">
+                    <div class="mx-auto max-w-2xl text-center">
+                        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                            Gotowy na transformacje?
+                        </h2>
+                        <p class="mt-6 text-lg text-primary-100">
+                            Umow bezplatna konsultacje i dowiedz sie, jak AI moze zoptymalizowac Twoje procesy biznesowe.
+                            Szybciej, taniej i bez chaosu.
+                        </p>
+                        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <a href="contact.html" class="w-full sm:w-auto rounded-full bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-lg hover:bg-primary-50 transition-all duration-300 hover:scale-105">
+                                Umow bezplatna konsultacje
+                            </a>
+                            <a href="mailto:biuro@optiwave.pl" class="w-full sm:w-auto rounded-full px-8 py-4 text-base font-semibold text-white ring-2 ring-white/30 hover:ring-white/50 hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                biuro@optiwave.pl
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Decorative elements -->
+                    <div aria-hidden="true" class="absolute -top-24 right-0 -z-10 transform-gpu blur-3xl">
+                        <div style="clip-path: circle(50% at 50% 50%)" class="aspect-square w-[400px] bg-white/20"></div>
+                    </div>
+                    <div aria-hidden="true" class="absolute -bottom-24 left-0 -z-10 transform-gpu blur-3xl">
+                        <div style="clip-path: circle(50% at 50% 50%)" class="aspect-square w-[300px] bg-white/10"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10">
+        <div class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <a href="index.html" class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold gradient-text">Optiwave</span>
+                    </a>
+                    <p class="text-gray-400 text-sm max-w-md">
+                        AI-Powered Process Intelligence. Zmapuj. Zoptymalizuj. Zautomatyzuj.
+                        Zwieksz marze operacyjna dzieki inteligentnej automatyzacji.
+                    </p>
+                    <p class="text-gray-500 text-xs mt-4">
+                        Marka nalezaca do Grupy EPSolutions sp. z o.o.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-white mb-4">Nawigacja</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Strona glowna</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">O nas</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Portfolio</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-white mb-4">Kontakt</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <a href="mailto:biuro@optiwave.pl" class="hover:text-primary-400 transition-colors">biuro@optiwave.pl</a>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-primary-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>ul. Trebacka 4<br>00-079 Warszawa</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2026 Optiwave.pl. Wszelkie prawa zastrzezone.</p>
+                <a href="#" class="text-gray-500 hover:text-primary-400 transition-colors text-sm">Polityka prywatnosci</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // FAQ toggle
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+
+            content.classList.toggle('hidden');
+            icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
