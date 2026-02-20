@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+
+<div class="bg-white dark:bg-gray-900">
+  <div class="mx-auto max-w-7xl px-6 py-24 sm:pt-32 lg:px-8 lg:py-40">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+      <div class="lg:col-span-5">
+        <h2 class="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl dark:text-white">Frequently asked questions</h2>
+        <p class="mt-4 text-base/7 text-pretty text-gray-600 dark:text-gray-400">Can’t find the answer you’re looking for? Reach out to our <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300">customer support</a> team.</p>
+      </div>
+      <div class="mt-10 lg:col-span-7 lg:mt-0">
+        <dl class="space-y-10">
+          <div>
+            <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">How do you make holy water?</dt>
+            <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+          </div>
+          <div>
+            <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">What&#039;s the best thing about Switzerland?</dt>
+            <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+          </div>
+          <div>
+            <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">What do you call someone with no body and no nose?</dt>
+            <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+          </div>
+          <div>
+            <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">Why do you never see elephants hiding in trees?</dt>
+            <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">Because they&#039;re so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
+<div class="bg-white dark:bg-gray-900">
+  <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white">Frequently asked questions</h2>
+      <dl class="mt-16 divide-y divide-gray-900/10 dark:divide-white/10">
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-0" class="flex w-full items-start justify-between text-left text-gray-900 dark:text-white">
+              <span class="text-base/7 font-semibold">What&#039;s the best thing about Switzerland?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-0" class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600 dark:text-gray-400">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-1" class="flex w-full items-start justify-between text-left text-gray-900 dark:text-white">
+              <span class="text-base/7 font-semibold">How do you make holy water?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-1" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600 dark:text-gray-400">You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut tempora vitae odio inventore fuga aliquam nostrum quod porro. Delectus quia facere id sequi expedita natus.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-2" class="flex w-full items-start justify-between text-left text-gray-900 dark:text-white">
+              <span class="text-base/7 font-semibold">What do you call someone with no body and no nose?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-2" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600 dark:text-gray-400">Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-3" class="flex w-full items-start justify-between text-left text-gray-900 dark:text-white">
+              <span class="text-base/7 font-semibold">Why do you never see elephants hiding in trees?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-3" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600 dark:text-gray-400">Because they&#039;re so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-4" class="flex w-full items-start justify-between text-left text-gray-900 dark:text-white">
+              <span class="text-base/7 font-semibold">Why can&#039;t you hear a pterodactyl go to the bathroom?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-4" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600 dark:text-gray-400">Because the pee is silent. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quas voluptatibus ex culpa ipsum, aspernatur blanditiis fugiat ullam magnam suscipit deserunt illum natus facilis atque vero consequatur! Quisquam, debitis error.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-5" class="flex w-full items-start justify-between text-left text-gray-900 dark:text-white">
+              <span class="text-base/7 font-semibold">Why did the invisible man turn down the job offer?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-5" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600 dark:text-gray-400">He couldn&#039;t see himself doing it. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet perspiciatis officiis corrupti tenetur. Temporibus ut voluptatibus, perferendis sed unde rerum deserunt eius.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white dark:bg-gray-900">
+  <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+    <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white">Frequently asked questions</h2>
+    <dl class="mt-20 divide-y divide-gray-900/10 dark:divide-white/10">
+      <div class="py-8 first:pt-0 last:pb-0 lg:grid lg:grid-cols-12 lg:gap-8">
+        <dt class="text-base/7 font-semibold text-gray-900 lg:col-span-5 dark:text-white">What&#039;s the best thing about Switzerland?</dt>
+        <dd class="mt-4 lg:col-span-7 lg:mt-0">
+          <p class="text-base/7 text-gray-600 dark:text-gray-400">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+        </dd>
+      </div>
+      <div class="py-8 first:pt-0 last:pb-0 lg:grid lg:grid-cols-12 lg:gap-8">
+        <dt class="text-base/7 font-semibold text-gray-900 lg:col-span-5 dark:text-white">How do you make holy water?</dt>
+        <dd class="mt-4 lg:col-span-7 lg:mt-0">
+          <p class="text-base/7 text-gray-600 dark:text-gray-400">You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut tempora vitae odio inventore fuga aliquam nostrum quod porro. Delectus quia facere id sequi expedita natus.</p>
+        </dd>
+      </div>
+      <div class="py-8 first:pt-0 last:pb-0 lg:grid lg:grid-cols-12 lg:gap-8">
+        <dt class="text-base/7 font-semibold text-gray-900 lg:col-span-5 dark:text-white">What do you call someone with no body and no nose?</dt>
+        <dd class="mt-4 lg:col-span-7 lg:mt-0">
+          <p class="text-base/7 text-gray-600 dark:text-gray-400">Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.</p>
+        </dd>
+      </div>
+      <div class="py-8 first:pt-0 last:pb-0 lg:grid lg:grid-cols-12 lg:gap-8">
+        <dt class="text-base/7 font-semibold text-gray-900 lg:col-span-5 dark:text-white">Why do you never see elephants hiding in trees?</dt>
+        <dd class="mt-4 lg:col-span-7 lg:mt-0">
+          <p class="text-base/7 text-gray-600 dark:text-gray-400">Because they&#039;re so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+        </dd>
+      </div>
+      <div class="py-8 first:pt-0 last:pb-0 lg:grid lg:grid-cols-12 lg:gap-8">
+        <dt class="text-base/7 font-semibold text-gray-900 lg:col-span-5 dark:text-white">Why can&#039;t you hear a pterodactyl go to the bathroom?</dt>
+        <dd class="mt-4 lg:col-span-7 lg:mt-0">
+          <p class="text-base/7 text-gray-600 dark:text-gray-400">Because the pee is silent. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quas voluptatibus ex culpa ipsum, aspernatur blanditiis fugiat ullam magnam suscipit deserunt illum natus facilis atque vero consequatur! Quisquam, debitis error.</p>
+        </dd>
+      </div>
+      <div class="py-8 first:pt-0 last:pb-0 lg:grid lg:grid-cols-12 lg:gap-8">
+        <dt class="text-base/7 font-semibold text-gray-900 lg:col-span-5 dark:text-white">Why did the invisible man turn down the job offer?</dt>
+        <dd class="mt-4 lg:col-span-7 lg:mt-0">
+          <p class="text-base/7 text-gray-600 dark:text-gray-400">He couldn&#039;t see himself doing it. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet perspiciatis officiis corrupti tenetur. Temporibus ut voluptatibus, perferendis sed unde rerum deserunt eius.</p>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+<div class="bg-white dark:bg-gray-900">
+  <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
+    <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white">Frequently asked questions</h2>
+    <p class="mt-6 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">Have a different question and can’t find the answer you’re looking for? Reach out to our support team by <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300">sending us an email</a> and we’ll get back to you as soon as we can.</p>
+    <div class="mt-20">
+      <dl class="space-y-16 sm:grid sm:grid-cols-2 sm:space-y-0 sm:gap-x-6 sm:gap-y-16 lg:grid-cols-3 lg:gap-x-10">
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">What&#039;s the best thing about Switzerland?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">How do you make holy water?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">Why do you never see elephants hiding in trees?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">Because they&#039;re so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">What do you call someone with no body and no nose?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">Why can&#039;t you hear a pterodactyl go to the bathroom?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">Because the pee is silent. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">Why did the invisible man turn down the job offer?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">He couldn&#039;t see himself doing it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white dark:bg-gray-900">
+  <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white">Frequently asked questions</h2>
+      <p class="mt-6 text-base/7 text-gray-600 dark:text-gray-400">Have a different question and can’t find the answer you’re looking for? Reach out to our support team by <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300">sending us an email</a> and we’ll get back to you as soon as we can.</p>
+    </div>
+    <div class="mt-20">
+      <dl class="space-y-16 sm:grid sm:grid-cols-2 sm:space-y-0 sm:gap-x-6 sm:gap-y-16 lg:grid-cols-3 lg:gap-x-10">
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">What&#039;s the best thing about Switzerland?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">How do you make holy water?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">Why do you never see elephants hiding in trees?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">Because they&#039;re so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">What do you call someone with no body and no nose?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">Why can&#039;t you hear a pterodactyl go to the bathroom?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">Because the pee is silent. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">Why did the invisible man turn down the job offer?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">He couldn&#039;t see himself doing it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white dark:bg-gray-900">
+  <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white">Frequently asked questions</h2>
+      <p class="mt-6 text-base/7 text-gray-600 dark:text-gray-400">Have a different question and can’t find the answer you’re looking for? Reach out to our support team by <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300">sending us an email</a> and we’ll get back to you as soon as we can.</p>
+    </div>
+    <div class="mt-20">
+      <dl class="space-y-16 sm:grid sm:grid-cols-2 sm:space-y-0 sm:gap-x-6 sm:gap-y-16 lg:gap-x-10">
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">What&#039;s the best thing about Switzerland?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">How do you make holy water?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">Why do you never see elephants hiding in trees?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">Because they&#039;re so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">What do you call someone with no body and no nose?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">Why can&#039;t you hear a pterodactyl go to the bathroom?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">Because the pee is silent. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+        <div>
+          <dt class="text-base/7 font-semibold text-gray-900 dark:text-white">Why did the invisible man turn down the job offer?</dt>
+          <dd class="mt-2 text-base/7 text-gray-600 dark:text-gray-400">He couldn&#039;t see himself doing it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
